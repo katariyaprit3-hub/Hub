@@ -46,11 +46,24 @@
     height: 80px;
     margin-top: 10px;
     border-radius: 30px;
-    padding: 20px 50px;
+    padding: 10px 100px 10px 50px;
     background: transparent;
     border: 0.7px solid #000;
     color: #000;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.suject h1 {
+    margin-right: 70px;
+    font-size: 2em;
+}
+
+.suject input {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #000;
+    background: #fff;
+    outline: none;
 }
