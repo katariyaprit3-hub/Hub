@@ -9,7 +9,7 @@ export default function Introduction() {
           <h3>Select any topic from the sidebar to begin learning.</h3>
           <div className="topicsub">
             <button className="suject"><input type="radio" className='chack' /><h1>PHP</h1></button>
-            <button className="suject"><input type="radio" className='chack' /><h1>PHP</h1></button>
+            <button className="suject"><input type="radio" className='chack' /><h1>Data Structuar</h1></button>
             <button className="suject"><input type="radio" className='chack' /><h1>PHP</h1></button>
             <button className="suject"><input type="radio" className='chack' /><h1>PHP</h1></button>
             <button className="suject"><input type="radio" className='chack' /><h1>PHP</h1></button>
