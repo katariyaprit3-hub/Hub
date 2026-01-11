@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Routes, Route, useNavigate } from "react-router-dom"
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom"
 
 import logo from "/envato.png"
 import leftbtni from "/list.png"
@@ -13,31 +13,48 @@ import "./App.css"
 
 export default function Home() {
   const [sidebarOpen, setSidebarOpen] = useState(false)
+
   const navigate = useNavigate()
+  const location = useLocation()
+
+  const toggleSidebar = () => {
+    setSidebarOpen(prev => !prev)
+  }
+
+  const closeSidebar = () => {
+    setSidebarOpen(false)
+  }
 
   useEffect(() => {
-    const handleKeyDown = (e) => {
+    const handler = (e) => {
       if (e.ctrlKey && e.key.toLowerCase() === "b") {
         e.preventDefault()
-        setSidebarOpen(prev => !prev)
+        toggleSidebar()
       }
     }
-
-    document.addEventListener("keydown", handleKeyDown)
-    return () => document.removeEventListener("keydown", handleKeyDown)
+    document.addEventListener("keydown", handler)
+    return () => document.removeEventListener("keydown", handler)
   }, [])
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    closeSidebar()
+  }, [location.pathname])
 
   return (
     <>
+      {sidebarOpen && (
+        <div className="blurs" onClick={closeSidebar}></div>
+      )}
+
       <header>
         <div className="headerleft">
           <img
             src={leftbtni}
-            alt="menu"
             className="leftbtn"
-            onClick={() => setSidebarOpen(prev => !prev)}
+            onClick={toggleSidebar}
           />
-          <img src={logo} className="logo" alt="Envato" />
+          <img src={logo} className="logo" />
         </div>
 
         <nav className="navigation">
@@ -49,47 +66,36 @@ export default function Home() {
         </nav>
       </header>
 
-      <div className="mainlayout">
+      <aside className={`leftbar ${sidebarOpen ? "active" : ""}`}>
+        <div className="leftin">
 
-        <aside className={`leftbar ${sidebarOpen ? "active" : ""}`}>
-          <div className="leftin">
-
-            <div className="sections active">
-              <h1 className="sub">PHP</h1>
-              <img src={leftarrow} alt="" />
-            </div>
-
-            <div className="subpart">
-              <button
-                className="phpsub"
-                onClick={() => navigate("/php-installation")}
-              >
-                <img src={download} alt="" />
-                Installation
-              </button>
-            </div>
-
-            <div className="sections">
-              <h1 className="sub">Data Structure</h1>
-              <img src={leftarrow} alt="" />
-            </div>
-
-            <div className="sections">
-              <h1 className="sub">Computer Network</h1>
-              <img src={leftarrow} alt="" />
-            </div>
-
+          <div className="sections">
+            <h1 className="sub">PHP</h1>
+            <img src={leftarrow} />
           </div>
-        </aside>
 
-        <main className="contentArea">
-          <Routes>
-            <Route path="/" element={<Introduction />} />
-            <Route path="/php-installation" element={<Phpinstalation />} />
-          </Routes>
-        </main>
+          <div className="subpart">
+            <button
+              className="phpsub"
+              onClick={() => {
+                navigate("/php-installation")
+                closeSidebar()
+              }}
+            >
+              <img src={download} />
+              Installation
+            </button>
+          </div>
 
-      </div>
+        </div>
+      </aside>
+
+      <main className="contentArea">
+        <Routes>
+          <Route path="/" element={<Introduction />} />
+          <Route path="/php-installation" element={<Phpinstalation />} />
+        </Routes>
+      </main>
     </>
   )
 }
