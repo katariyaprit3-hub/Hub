@@ -58,7 +58,10 @@ export default function Home() {
         </div>
 
         <nav className="navigation">
-          <input className="searchinput" placeholder="Search" />
+          <input list="input" className="searchinput" placeholder="Search" />
+          <datalist id="input">
+            <option value="PHP"></option>
+          </datalist>
           <div className="profile">
             <div className="avtar"></div>
             <h5>You</h5>
@@ -85,6 +88,27 @@ export default function Home() {
               <img src={download} />
               Installation
             </button>
+            <button
+              className="phpsub"
+              onClick={() => {
+                navigate("/php-installation")
+                closeSidebar()
+              }}
+            >
+              <img src={download} />
+              Installation
+            </button>
+            <button
+              className="phpsub"
+              onClick={() => {
+                navigate("/php-installation")
+                closeSidebar()
+              }}
+            >
+              <img src={download} />
+              Installation
+            </button>
+            
           </div>
 
         </div>

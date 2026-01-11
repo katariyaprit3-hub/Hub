@@ -4,7 +4,16 @@ export default function Introduction() {
   return (
     <div className="main">
       <div className="intro">
-        <h1>Welcome to HUB</h1>
+        <div className="sugg">
+          <h1>Welcome to HUB</h1>
+          <div className="keysugg">
+            <p className="keys">Leftbar: CTRL + b</p>
+            <p className="keys">Leftbar: CTRL + b</p>
+            <p className="keys">Leftbar: CTRL + b</p>
+            <p className="keys">Leftbar: CTRL + b</p>
+            <p className="keys">Leftbar: CTRL + b</p>
+          </div>
+        </div>
         <div className="topics">
           <h3>Select any topic from the sidebar to begin learning.</h3>
           <div className="topicsub">
