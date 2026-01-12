@@ -31,7 +31,7 @@ export default function Phpinstalation() {
       <img src="/pngwing.com.png" alt="XAMPP" />
       <div className="contents">
         <div className="install">
-          <h3>XAMPP – version x64-8.0.30</h3>
+          <h3> LTS XAMPP – version x64-8.0.30</h3>
           <button className="link" onClick={handleDownload}>
             Download XAMPP
           </button>

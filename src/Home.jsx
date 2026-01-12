@@ -5,9 +5,16 @@ import logo from "/envato.png"
 import leftbtni from "/list.png"
 import leftarrow from "/right.png"
 import download from "/download.png"
+import idea from "../public/idea.png";
+import code from "../public/code.png";
+
 
 import Introduction from "./introduction.jsx"
 import Phpinstalation from "./php/phpinstalarion.jsx"
+import Basicphp from "./php/basicphp.jsx"
+import Phpcode from "./php/phpcode.jsx"
+import Theory from "./datastructuar/theory.jsx"
+
 
 import "./App.css"
 
@@ -53,14 +60,19 @@ export default function Home() {
             src={leftbtni}
             className="leftbtn"
             onClick={toggleSidebar}
+            
           />
-          <img src={logo} className="logo" />
+          <img src={logo}onClick={() => {
+                navigate("/intro")
+                closeSidebar()
+              }} className="logo" />
         </div>
 
         <nav className="navigation">
           <input list="input" className="searchinput" placeholder="Search" />
           <datalist id="input">
             <option value="PHP"></option>
+            <option value="basicPHP"></option>
           </datalist>
           <div className="profile">
             <div className="avtar"></div>
@@ -91,33 +103,56 @@ export default function Home() {
             <button
               className="phpsub"
               onClick={() => {
-                navigate("/php-installation")
+                navigate("/Basicphp")
                 closeSidebar()
               }}
             >
-              <img src={download} />
-              Installation
+              <img src={idea} />
+              BAsic PHP
             </button>
             <button
               className="phpsub"
               onClick={() => {
-                navigate("/php-installation")
+                navigate("/basicphp")
                 closeSidebar()
               }}
             >
-              <img src={download} />
-              Installation
+              <img src={code} />
+              PHP base Code
             </button>
             
           </div>
 
+
+
+
+          <div className="sections">
+            <h1 className="sub">Data Structuar</h1>
+            <img src={leftarrow} />
+          </div>
+
+          <div className="subpart">
+            <button
+              className="phpsub"
+              onClick={() => {
+                navigate("/datastructuar")
+                closeSidebar()
+              }}
+            >
+              <img src={download} />
+              Basic theory
+            </button>
+          </div>
         </div>
       </aside>
 
       <main className="contentArea">
         <Routes>
-          <Route path="/" element={<Introduction />} />
+          <Route path="/intro" element={<Introduction />} />
           <Route path="/php-installation" element={<Phpinstalation />} />
+          <Route path="/basicphp" element={<Basicphp/>}/>
+          <Route path="/codes" element={<Phpcode/>}/>
+          <Route path="/datastructuar" element={<Theory />}/>
         </Routes>
       </main>
     </>
