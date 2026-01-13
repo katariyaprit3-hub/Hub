@@ -117,7 +117,7 @@ export default function Home() {
                         <button
                             className="phpsub"
                             onClick={() => {
-                                navigate("/Basic-php")
+                                navigate("/basi-cphp")
                                 closeSidebar()
                             }}
                         >
