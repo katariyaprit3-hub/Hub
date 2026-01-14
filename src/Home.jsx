@@ -138,7 +138,7 @@ export default function Home() {
                     </div>
 
                     <div className="sections">
-                        <h1 className="sub">Data Structuar</h1>
+                        <h1 className="sub">Data Structure</h1>
                         <img src={leftarrow} />
                     </div>
 

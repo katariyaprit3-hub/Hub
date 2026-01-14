@@ -13,7 +13,7 @@ body {
 body::-webkit-scrollbar,
 .leftbar::-webkit-scrollbar {
     display: none;
-}
+}   
 
 .profilecom {
     position: fixed;
@@ -21,7 +21,7 @@ body::-webkit-scrollbar,
     right: 0;
     width: 100vw;
     height: calc(100vh - 50px);
-    background-color: #00000087;
+    background-color: #9c9b9b;
     color: #000;
     padding: 24px;  
     display: flex;
@@ -42,9 +42,9 @@ header {
     left: 0;
     width: 100%;
     height: 70px;
-    box-shadow: 0 0 30px #0000004a;
+    box-shadow: 0 0 30px #9c9b9b;
     padding: 0 70px;
-    background: #1d1d1d;
+    background: #9c9b9b;
     display: flex;
     align-items: center;
     justify-content: space-between;
